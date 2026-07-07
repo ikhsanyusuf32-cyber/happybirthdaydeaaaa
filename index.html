@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Happy Birthday Adeyy 🎂</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ========== HALAMAN 0: CEK TANGGAL ========== -->
+  <section id="page0" class="page active">
+    <div class="stars-bg" id="stars-bg-0"></div>
+
+    <div class="date-check-content">
+      <div class="date-check-card">
+        <div class="date-check-emoji">🎂</div>
+        <h2 class="date-check-title">Hei, kamu~</h2>
+        <p class="date-check-subtitle">Ini hari ulang tahun kamu yaaaa<br/>Tanggal berapa hari ini? ✨</p>
+
+        <div class="date-inputs">
+          <div class="input-group">
+            <label>Tanggal</label>
+            <input type="number" id="inputDay" min="1" max="31" placeholder="DD" maxlength="2" />
+          </div>
+          <div class="input-sep">/</div>
+          <div class="input-group">
+            <label>Bulan</label>
+            <input type="number" id="inputMonth" min="1" max="12" placeholder="MM" maxlength="2" />
+          </div>
+          <div class="input-sep">/</div>
+          <div class="input-group">
+            <label>Tahun</label>
+            <input type="number" id="inputYear" placeholder="YYYY" maxlength="4" />
+          </div>
+        </div>
+
+        <button class="date-submit-btn" onclick="checkDate()">Buka Kejutannya 🎁</button>
+        <p class="date-error" id="dateError"></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== HALAMAN 1: GIFT BOX ========== -->
+  <section id="page1" class="page">
+    <div class="stars-bg" id="stars-bg-1"></div>
+
+    <div class="page1-content">
+      <p class="hint-text">Ada sesuatu buat kamu 💫</p>
+
+      <div class="gift-wrapper" id="giftBox" onclick="openGift()">
+        <div class="gift-lid" id="giftLid">
+          <div class="lid-ribbon"></div>
+        </div>
+        <div class="gift-body">
+          <div class="body-ribbon-v"></div>
+          <div class="body-ribbon-h"></div>
+          <div class="bow">
+            <div class="bow-left"></div>
+            <div class="bow-right"></div>
+            <div class="bow-center"></div>
+          </div>
+        </div>
+      </div>
+
+      <p class="tap-text">Klik untuk membuka ✨</p>
+    </div>
+
+    <!-- Particle burst container -->
+    <div id="burst-container"></div>
+    <div id="confetti-container"></div>
+  </section>
+
+  <!-- ========== HALAMAN 2: SURAT + FOTO + VIDEO ========== -->
+  <section id="page2" class="page">
+    <div class="stars-bg" id="stars-bg-2"></div>
+    <div class="floaters" id="floaters"></div>
+
+    <div class="page2-content">
+
+      <div class="birthday-title" id="birthdayTitle">
+        <span class="title-happy">Happy</span>
+        <span class="title-birthday">Birthday</span>
+        <span class="title-name">Adeyyyy</span>
+      </div>
+
+      <div class="polaroids" id="polaroids">
+        <div class="polaroid polaroid-left">
+          <img src="assets/foto1.jpeg" alt="Foto 1"
+               onerror="this.src='https://placehold.co/220x260/ffb6c1/fff?text=📸+Foto+1'"
+               onclick="openLightbox(this.src)" />
+          <p class="polaroid-caption"> ini foto lucuu</p>
+        </div>
+        <div class="polaroid polaroid-right">
+          <img src="assets/foto2.jpeg" alt="Foto 2"
+               onerror="this.src='https://placehold.co/220x260/ffc0cb/fff?text=📸+Foto+2'"
+               onclick="openLightbox(this.src)" />
+          <p class="polaroid-caption"> ini jugaa </p>
+        </div>
+      </div>
+
+      <div class="wish-card" id="wishCard">
+        <div class="wish-icon">🎂</div>
+        <p class="wish-text">
+          halloooo cantik, azekkkk sekarangg udahhh 18 tahunnn diaaa 🧑‍🚀
+        </p>
+        <p class="wish-text">
+          aku gapernaa lupa buat doain kamu, semogaa di umur yang baruu ini kamu sehatt selalu, panjang umur,
+          dimudahinn jalannyaa, gaa sedihh teruss, 18 tahun hari harinyaa happy semuaa,
+          dan selalu dikelilingi orang orang yang sayang sama kamu yaachhh.  ✨
+        </p>
+        <p class="wish-text">
+          tetep jadi deaa yang selaluu happy yaa, aku bakal selalu senang kalo tauu kamu happy,
+          aku kangenn kamu, aku sayang banget sama kamu, aku cinta banget sama kamu deyy. 🌠
+        </p>
+        <div class="wish-signature"> kamu layak dapetin ini semua 🫰🏼🫰🏼</div>
+      </div>
+
+      <!-- GALERI: VIDEO | FOTO | VIDEO -->
+      <div class="media-gallery" id="mediaGallery">
+        <div class="media-card media-card--video rotate-left">
+          <div class="media-frame">
+            <video src="assets/video1.mp4" controls playsinline preload="metadata"
+              onerror="this.closest('.media-frame').innerHTML='<div class=&quot;video-placeholder&quot;><span>🎬</span><p>video1.mp4</p></div>'">
+            </video>
+          </div>
+          <p class="media-caption">Judeeeeeee, meh mehh 😏</p>
+        </div>
+        <div class="media-card media-card--photo rotate-center">
+          <div class="media-frame">
+            <img src="assets/foto3.png" alt="Foto kenangan"
+              onerror="this.src='https://placehold.co/220x300/ffb6c1/fff?text=📸+Foto+3'"
+              onclick="openLightbox(this.src)" />
+          </div>
+          <p class="media-caption">Halooo kamu, cantik
+            aku juga punya sesuatu buat kamu, semoga kamu liatnya sukaa yaa! mauu komen juga gapapaa kok, tenang aja wa aku masih samaa </p>
+        </div>
+        <div class="media-card media-card--video rotate-right">
+          <div class="media-frame">
+            <video src="assets/video2.mp4" controls playsinline preload="metadata"
+              onerror="this.closest('.media-frame').innerHTML='<div class=&quot;video-placeholder&quot;><span>🎬</span><p>video2.mp4</p></div>'">
+            </video>
+          </div>
+          <p class="media-caption">happibirthday</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Lightbox -->
+  <div id="lightbox" onclick="closeLightbox()">
+    <span id="lightbox-close" onclick="closeLightbox()">✕</span>
+    <img id="lightbox-img" src="" alt="Foto besar" onclick="event.stopPropagation()" />
+  </div>
+
+  <!-- Musik -->
+  <audio id="bgMusic" loop preload="auto">
+    <source src="assets/music.mp3" type="audio/mpeg" />
+  </audio>
+
+  <!-- Music pill -->
+  <div id="musicPill" class="music-pill hidden">
+    <button id="musicToggle" onclick="toggleMusic()" aria-label="Toggle musik">
+      <span id="musicIcon">⏸</span>
+    </button>
+    <div class="music-info">
+      <span class="music-title">An Art Gallery Could Never Be As Unique As You</span>
+      <span class="music-artist">mrld</span>
+    </div>
+    <div class="music-bars">
+      <span></span><span></span><span></span><span></span>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
